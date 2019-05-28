@@ -170,7 +170,6 @@ MonoBehaviour:
   groundCheckLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  jetpack: {fileID: 0}
   coinsCollectedLabel: {fileID: 0}
   parallax: {fileID: 0}
   timeInvulnerability: {fileID: 0}

@@ -3,11 +3,12 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraFollow
     - CoinStack
+    - EndGameMenu
     - GameController
     - LaserController
-    - MouseController
     - ObjectPool.PoolManager
     - ParallaxScroll
+    - PlayerController
     - RoomGenerator
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -26,6 +27,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
@@ -97,6 +99,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9380}
     - Class: 114
+      Script: {instanceID: 9382}
+    - Class: 114
       Script: {instanceID: 9416}
     - Class: 114
       Script: {instanceID: 9418}
@@ -109,17 +113,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10000}
     - Class: 114
-      Script: {instanceID: 10134}
+      Script: {instanceID: 10116}
     - Class: 114
-      Script: {instanceID: 10208}
+      Script: {instanceID: 10136}
     - Class: 114
-      Script: {instanceID: 10228}
+      Script: {instanceID: 10210}
     - Class: 114
-      Script: {instanceID: 10238}
+      Script: {instanceID: 10230}
     - Class: 114
-      Script: {instanceID: 10250}
+      Script: {instanceID: 10240}
     - Class: 114
-      Script: {instanceID: 10486}
+      Script: {instanceID: 10252}
+    - Class: 114
+      Script: {instanceID: 10488}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -129,10 +135,6 @@ ScriptsOnlyBuild:
     - Class: 136
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 198
-      Script: {instanceID: 0}
-    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -153,7 +155,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 6046780e586494e0fefe87832ede09c0
+      Hash: a26d922dc879b3b1579e8b6600ed593d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ParallaxScroll
@@ -693,6 +695,12 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
+      Hash: b3f952f53f565ef0c97db9681aa9f178
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EndGameMenu
+  - hash:
+      serializedVersion: 2
       Hash: 3f8d7b92a6be3c715e55d5cfa7cc8384
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -765,13 +773,13 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 50a384dc885cc0a6999b85c525f97b9b
+      Hash: d0b65c5f320a857109924e3a20efcf37
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: MouseController
+    className: PlayerController
   - hash:
       serializedVersion: 2
-      Hash: 4e37db3255192831c7e90b14dbfe37f4
+      Hash: 877d489d2bfe1a3367b98d48d74aec5c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController

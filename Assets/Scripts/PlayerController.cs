@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 	private bool isInvulnerability;
 
 	public Text timeInvulnerability;
-	public Image InvulnerabilityImage;
+	public GameObject InvulnerabilityPanel;
 
 	public float invulnerabilityTime = 5.0f;
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 			timeInvulnerability.text = Math.Ceiling(currentInvulnerabilityTime).ToString(CultureInfo.InvariantCulture);
 			currentInvulnerabilityTime -= Time.deltaTime;
 		}
-		InvulnerabilityImage.gameObject.SetActive(isInvulnerability);
+		InvulnerabilityPanel.gameObject.SetActive(isInvulnerability);
 		livesText.text = lives.ToString();
 		distanceCovered = (int)Math.Ceiling(transform.position.x - startPoint);
 		distanceText.text = distanceCovered.ToString();
@@ -193,9 +193,11 @@ public class PlayerController : MonoBehaviour
 		playerMovementSpeed = startMovementSpeed;
 		transform.position = new Vector3(startPoint, 0, transform.position.z);
 		playerAnimator.SetBool("isDead", false);
+		playerAnimator.SetBool("isGrounded", false);
+		playerAnimator.SetTrigger("dieOnce");
 		playerAnimator.Play("fly");
 		isDead = false;
-		playerAnimator.SetTrigger("dieOnce");
+		
 	}
 
 	public void OnPlayerDeath()
