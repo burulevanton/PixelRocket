@@ -1,8 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BlackPanel
     - CameraFollow
     - CoinStack
+    - DefaultNamespace.GameUI
     - EndGameMenu
     - GameController
     - LaserController
@@ -10,6 +12,7 @@ ScriptsOnlyBuild:
     - ParallaxScroll
     - PlayerController
     - RoomGenerator
+    - SwitchButton
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -126,6 +129,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10252}
     - Class: 114
       Script: {instanceID: 10488}
+    - Class: 114
+      Script: {instanceID: 31288}
+    - Class: 114
+      Script: {instanceID: 46436}
+    - Class: 114
+      Script: {instanceID: 58120}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -695,7 +704,7 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
-      Hash: b3f952f53f565ef0c97db9681aa9f178
+      Hash: c384e859c9426e23bca1157562b485b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EndGameMenu
@@ -773,13 +782,13 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: d0b65c5f320a857109924e3a20efcf37
+      Hash: 0c8c33d342a592eb925b496cb44cc282
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
   - hash:
       serializedVersion: 2
-      Hash: 877d489d2bfe1a3367b98d48d74aec5c
+      Hash: e2788f14e6a338a7b1aa517282af518f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -849,6 +858,36 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameData
+  - hash:
+      serializedVersion: 2
+      Hash: 79e20d4d06f2a5267685d08feb5070a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SwitchButton
+  - hash:
+      serializedVersion: 2
+      Hash: c2b7e075a10ddd79ff033705f012f2db
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DefaultNamespace
+    className: GameUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlackPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity

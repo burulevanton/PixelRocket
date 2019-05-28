@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
 	public uint Coins => coins;
 
-	public Text coinsCollectedLabel;
+	//public Text coinsCollectedLabel;
 	
 	
 	public ParallaxScroll parallax;
@@ -47,11 +47,13 @@ public class PlayerController : MonoBehaviour
 	private uint renderOpacity = 10;
 
 	private uint lives = 2;
-	public Text livesText;
+	public uint Lives => lives;
+	
+	//public Text livesText;
 
 	private bool _jetpackActive = false;
 
-	public Text distanceText;
+	//public Text distanceText;
 	private int distanceCovered;
 
 	public int DistanceCovered => distanceCovered;
@@ -93,9 +95,9 @@ public class PlayerController : MonoBehaviour
 			currentInvulnerabilityTime -= Time.deltaTime;
 		}
 		InvulnerabilityPanel.gameObject.SetActive(isInvulnerability);
-		livesText.text = lives.ToString();
+		//livesText.text = lives.ToString();
 		distanceCovered = (int)Math.Ceiling(transform.position.x - startPoint);
-		distanceText.text = distanceCovered.ToString();
+		//distanceText.text = distanceCovered.ToString();
 		if (distanceCovered % 50 == 0 && speedUp)
 		{
 			playerMovementSpeed *= 1.1f;
@@ -108,9 +110,9 @@ public class PlayerController : MonoBehaviour
 	{
 		if(GameController.Instance.IsPause || GameController.Instance.IsEnd)
 			return;
-		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Stationary))
+		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Stationary) && !GameController.Instance.InMainMenu)
 			_jetpackActive = true;
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended  && !GameController.Instance.InMainMenu) 
 			_jetpackActive = false;
 		_jetpackActive = _jetpackActive && !isDead && Input.touchCount > 0;
 		if (_jetpackActive)
@@ -169,13 +171,13 @@ public class PlayerController : MonoBehaviour
 			isDead = true;
 			playerAnimator.SetBool("isDead", true);
 		}
+//		laserCollider.enabled = false;
 	}
 	
 	void CollectCoin(Collider2D coinCollider)
 	{
 		coins++;
-		coinsCollectedLabel.text = coins.ToString();
-		//Destroy(coinCollider.gameObject);
+		//coinsCollectedLabel.text = coins.ToString();
 		coinCollider.gameObject.SetActive(false);
 		AudioSource.PlayClipAtPoint(coinCollectSound, transform.position);
 	}
@@ -189,15 +191,26 @@ public class PlayerController : MonoBehaviour
 	public void RestartGame()
 	{
 		isDead = true;
-		lives = 2;
+		lives = (uint) (GameData.Instance.Difficulty == 1 ? 2 : 1);
 		playerMovementSpeed = startMovementSpeed;
-		transform.position = new Vector3(startPoint, 0, transform.position.z);
+		coins = 0;
+		transform.position = new Vector3(startPoint, -3.835001f, transform.position.z);
+		playerAnimator.enabled = true;
 		playerAnimator.SetBool("isDead", false);
-		playerAnimator.SetBool("isGrounded", false);
 		playerAnimator.SetTrigger("dieOnce");
-		playerAnimator.Play("fly");
 		isDead = false;
-		
+		playerAnimator.Play("run");
+		//coinsCollectedLabel.text = coins.ToString();
+	}
+
+	public void Respawn()
+	{
+		lives = 1;
+		playerAnimator.enabled = true;
+		playerAnimator.SetBool("isDead", false);
+		playerAnimator.SetTrigger("dieOnce");
+		isDead = false;
+		playerAnimator.Play("run");
 	}
 
 	public void OnPlayerDeath()

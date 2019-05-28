@@ -18,8 +18,8 @@ public class RoomGenerator : Singleton<RoomGenerator>
 	public float objectsMinDistance = 5.0f;
 	public float objectsMaxDistance = 10.0f;
 
-	public float objectsMinY = -1.4f;
-	public float objectsMaxY = 1.4f;
+	public float objectsMinY = -2.8f;
+	public float objectsMaxY = 2.8f;
 
 	public float objectsMinRotation = -45.0f;
 	public float objectsMaxRotation = 45.0f;
@@ -49,6 +49,11 @@ public class RoomGenerator : Singleton<RoomGenerator>
 	void AddObject(float lastObjectX)
 	{
 		int randomIndex = Random.Range(0, availableObjects.Length);
+		if (GameData.Instance.Difficulty == 2)
+		{
+			while (availableObjects[randomIndex].tag == "Health")
+				randomIndex = Random.Range(0, availableObjects.Length);
+		}
 		GameObject obj = PoolManager.SpawnObject(availableObjects[randomIndex]);
 		float objectPositionX = lastObjectX + Random.Range(objectsMinDistance, objectsMaxDistance);
 		float randomY = Random.Range(objectsMinY, objectsMaxY);
@@ -125,7 +130,8 @@ public class RoomGenerator : Singleton<RoomGenerator>
 		currentRooms.Add(room);
 		while (!GameController.Instance.IsEnd)
 		{
-			GenerateObjectsIfRequired();
+			if(!GameController.Instance.InMainMenu)
+				GenerateObjectsIfRequired();
 			GenerateRoomIfRequired();
 			yield return new WaitForSeconds(0.25f);
 		}

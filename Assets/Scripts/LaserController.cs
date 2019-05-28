@@ -16,6 +16,10 @@ public class LaserController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (GameData.Instance.Difficulty == 2)
+		{
+			rotationSpeed *= 2.0f;
+		}
 		timeUntilNextToggle = toggleInterval;
 		laserCollider = gameObject.GetComponent<Collider2D>();
 		laserRenderer = gameObject.GetComponent<SpriteRenderer>();

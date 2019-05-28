@@ -59,10 +59,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BlackPanel.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CoinStack.cs" />
     <Compile Include="Assets\Scripts\EndGameMenu.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
+    <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\LaserController.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPoolContainer.cs" />
@@ -71,6 +74,8 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\SwitchButton.cs" />
+    <Compile Include="Assets\Scripts\SwitchButtonDifficulty.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/RocketJump/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
