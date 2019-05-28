@@ -9,15 +9,16 @@
         <e p="Scripts" t="Include">
           <e p="CameraFollow.cs" t="Include" />
           <e p="CoinStack.cs" t="Include" />
+          <e p="EndGameMenu.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="LaserController.cs" t="Include" />
-          <e p="MouseController.cs" t="Include" />
           <e p="ObjectPool" t="Include">
             <e p="ObjectPool.cs" t="Include" />
             <e p="ObjectPoolContainer.cs" t="Include" />
             <e p="PoolManager.cs" t="Include" />
           </e>
           <e p="ParallaxScroll.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
           <e p="RoomGenerator.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
         </e>

@@ -9,20 +9,24 @@ public class GameController : Singleton<GameController>
 
         public GameObject PauseMenu;
 
-        public MouseController Mouse;
+        public PlayerController Player;
+
+        public GameObject EndGameMenu;
         
         public void PauseGame()
         {
+                Time.timeScale = 0.0f;
                 PauseMenu.SetActive(true);
-                Mouse.gameObject.GetComponent<Rigidbody2D>().Sleep();
-                Mouse.gameObject.GetComponent<Animator>().enabled = false;
+//                Mouse.gameObject.GetComponent<Rigidbody2D>().Sleep();
+//                Mouse.gameObject.GetComponent<Animator>().enabled = false;
                 IsPause = true;
         }
 
         public void UnPauseGame()
         {
-                Mouse.gameObject.GetComponent<Rigidbody2D>().WakeUp();
-                Mouse.gameObject.GetComponent<Animator>().enabled = true;
+                Time.timeScale = 1.0f;
+//                Mouse.gameObject.GetComponent<Rigidbody2D>().WakeUp();
+//                Mouse.gameObject.GetComponent<Animator>().enabled = true;
                 PauseMenu.SetActive(false);
                 IsPause = false;
         }
@@ -32,10 +36,17 @@ public class GameController : Singleton<GameController>
                 IsEnd = true;
                 RoomGenerator.Instance.ClearScene();
                 UnPauseGame();
-                Mouse.RestartGame();
-                RoomGenerator.Instance.StartGenerate();
+                Player.RestartGame();
                 IsEnd = false;
+                RoomGenerator.Instance.StartGenerate();
                 PauseMenu.SetActive(false);
+                EndGameMenu.SetActive(false);
+        }
+
+        public void EndGame()
+        {
+                EndGameMenu.SetActive(true);
+                IsEnd = true;
         }
 
         private void Start()

@@ -61,13 +61,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CoinStack.cs" />
+    <Compile Include="Assets\Scripts\EndGameMenu.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LaserController.cs" />
-    <Compile Include="Assets\Scripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPoolContainer.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\PoolManager.cs" />
     <Compile Include="Assets\Scripts\ParallaxScroll.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Reference Include="Unity.Timeline.Editor">
