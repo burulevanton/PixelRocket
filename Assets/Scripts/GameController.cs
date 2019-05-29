@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : Singleton<GameController>
 {
@@ -10,6 +11,7 @@ public class GameController : Singleton<GameController>
         public bool InMainMenu { get; private set; } = true;
 
         public GameObject PauseMenu;
+        public Button pauseButton;
 
         public PlayerController Player;
 
@@ -23,7 +25,8 @@ public class GameController : Singleton<GameController>
 
         public void ChangeMusicMute(bool value)
         {
-                audioListener.enabled = value;
+                AudioListener.pause = !value;
+                //audioListener.enabled = value;
         }
 
 

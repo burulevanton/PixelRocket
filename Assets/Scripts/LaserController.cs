@@ -1,49 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour {
-	
-	public Sprite laserOnSprite;
-	public Sprite laserOffSprite;
-	public float toggleInterval = 0.5f;
-	public float rotationSpeed = 0.0f;
-	private bool isLaserOn = true;
-	private float timeUntilNextToggle;
-	private Collider2D laserCollider;
-	private SpriteRenderer laserRenderer;
+public class LaserController : MonoBehaviour
+{
+       protected bool isLaserOn = true;
+       public Sprite laserOnSprite;
+       public Sprite laserOffSprite;
+       protected Collider2D laserCollider;
+       protected SpriteRenderer laserRenderer;
+       protected bool laserHit = false;
 
+       private void Start()
+       {
+              laserCollider = gameObject.GetComponent<Collider2D>();
+              laserRenderer = gameObject.GetComponent<SpriteRenderer>();
+       }
 
-	// Use this for initialization
-	void Start () {
-		if (GameData.Instance.Difficulty == 2)
-		{
-			rotationSpeed *= 2.0f;
-		}
-		timeUntilNextToggle = toggleInterval;
-		laserCollider = gameObject.GetComponent<Collider2D>();
-		laserRenderer = gameObject.GetComponent<SpriteRenderer>();
+       private void OnEnable()
+       {
+              isLaserOn = true;
+              laserCollider.enabled = true;
+              laserHit = false;
+       }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		timeUntilNextToggle -= Time.deltaTime; 
-		if (timeUntilNextToggle <= 0)
-		{
-			isLaserOn = !isLaserOn;
-			laserCollider.enabled = isLaserOn;
-			if (isLaserOn)
-			{
-				laserRenderer.sprite = laserOnSprite;
-			}
-			else
-			{
-				laserRenderer.sprite = laserOffSprite;
-			}
-			timeUntilNextToggle = toggleInterval;
-		}
-		transform.RotateAround(transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+       private void Update()
+       {
+              if (isLaserOn)
+              {
+                     laserRenderer.sprite = laserOnSprite;
+              }
+              else
+              {
+                     laserRenderer.sprite = laserOffSprite;
+              }
+       }
 
-	}
+       public void Hit()
+       {
+              isLaserOn = false;
+              laserCollider.enabled = false;
+              laserHit = true;
+              laserRenderer.sprite = laserOffSprite;
+       }
 }

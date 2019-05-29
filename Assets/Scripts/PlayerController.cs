@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
 
 	void HitByLaser(Collider2D laserCollider)
 	{
+		laserCollider.gameObject.GetComponent<LaserController>().Hit();
 		if (!isDead)
 		{
 			AudioSource laserZap = laserCollider.gameObject.GetComponent<AudioSource>();

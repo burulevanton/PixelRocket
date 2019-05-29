@@ -23,6 +23,7 @@
           <e p="ParallaxScroll.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="RoomGenerator.cs" t="Include" />
+          <e p="RotateLaserController.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="SwitchButton.cs" t="Include" />
           <e p="SwitchButtonDifficulty.cs" t="Include" />

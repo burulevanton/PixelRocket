@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 212797278047137444}
   - component: {fileID: 61838086063816226}
   - component: {fileID: 452742774496986787}
+  - component: {fileID: 8245314160882806367}
   m_Layer: 0
   m_Name: stationary_laser
   m_TagString: Laser
@@ -203,3 +204,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8245314160882806367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289837145291184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054222948caf44259776a82fbd78f220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserOnSprite: {fileID: 21300000, guid: 56cabcb48cb3d9e4aabcd7026793ac53, type: 3}
+  laserOffSprite: {fileID: 21300000, guid: 28363c60d9cdc7a4cbb6119790c39f40, type: 3}
